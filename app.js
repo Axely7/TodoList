@@ -1,7 +1,7 @@
 import colors from "colors";
 import { inquirerMenu, pausa } from "./helpers/inquirer.js";
-
-console.clear();
+import { Tarea } from "./models/tarea.js";
+import { Tareas } from "./models/tareas.js";
 
 const main = async () => {
   console.log("Hola Mundo");
