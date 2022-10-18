@@ -25,6 +25,38 @@ class Tareas {
     const tarea = new Tarea(desc);
     this._listado[tarea.id] = tarea;
   }
+
+  listadoCompleto() {
+    console.log();
+    this.listadoArr.map((tarea, index) => {
+      const indice = `${index + 1}`.green;
+      const { desc, completadoEn } = tarea;
+      const estado = completadoEn ? "Completado".green : "Pendiente".red;
+
+      console.log(`${indice} ${desc} :: ${estado}`);
+    });
+  }
+
+  listarPendientesCompletadas(completadas = true) {
+    console.log();
+
+    let contador = 0;
+    this.listadoArr.map((tarea) => {
+      const { desc, completadoEn } = tarea;
+      const estado = completadoEn ? "Completado".green : "Pendiente".red;
+      if (completadas) {
+        if (completadoEn) {
+          contador += 1;
+          console.log(`${(contador + ".").green} ${desc} :: ${estado}`);
+        }
+      } else {
+        if (!completadoEn) {
+          contador += 1;
+          console.log(`${(contador + ".").green} ${desc} :: ${estado}`);
+        }
+      }
+    });
+  }
 }
 
 export { Tareas };
